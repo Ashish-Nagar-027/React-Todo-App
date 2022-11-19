@@ -3,7 +3,7 @@
 }
 
 input {
-  margin: 10px;
+  
   width: 300px;
   height: 40px;
   padding: 0.1rem 1rem;
@@ -15,4 +15,36 @@ button {
   padding: 0.8rem 1rem;
   font-size: 1rem;
   cursor: pointer;
+  margin: 10px;
 }
+
+.todo-container {
+  list-style-type: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns {
+  display: flex;
+  
+}
+
+.todo-item {
+  margin: 10px;
+  width: 300px;
+  height: 40px;
+  padding: 0.1rem 1rem;
+  font-size: 1.5rem;
+  outline: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: cadetblue;
+  padding: 1rem;
+ 
+}
+
