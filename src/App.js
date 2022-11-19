@@ -7,18 +7,21 @@ function App() {
   const [inputValue, setInputValue] = useState("")
    
  function addTask() {
-        setTodoList([...todoList, inputValue])
+        setTodoList([...todoList, { task: inputValue, completed: false }])
         setInputValue("")
  }
 
- const editTask = (e, key) => {
-  console.log(todoList)
-  console.log("edit " , e.target.value, key)
+ const editTask = (key) => {
+  console.log(key)
  }
 
  const deleteTask = (key) => {
      setTodoList((prevList) => prevList.filter((listItem,index) => index !==key))
  } 
+
+ const  completeTask = (index) => {
+     console.log('editing')
+  }
 
   return (
     <div className="App">
@@ -31,14 +34,16 @@ function App() {
         <div>
           <div className='todo-container'>
             {
-              todoList.map((value, key) => {
+              todoList.map((valueObj, key) => {
                 return <div className='todo-item' key={key}>
                    <div className='todo-item-value'>
-                       { value } 
+                       { valueObj.task } 
                      </div>
                      <div className='btns'>
-                        <button onClick={(e) => editTask(e, key) }>Edit</button>
-                        <button onClick={() => deleteTask(key) }>Delete</button></div> 
+                        <button onClick={() => editTask(key) }>Edit</button>
+                        <button onClick={() =>  deleteTask(key) }>Delete</button> 
+                        <button onClick={() =>  completeTask(key) }>completed</button>
+                      </div> 
                      </div>
               })             
             }

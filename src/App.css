@@ -15,7 +15,8 @@ button {
   padding: 0.8rem 1rem;
   font-size: 1rem;
   cursor: pointer;
-  margin: 10px;
+  margin: 5px;
+  width: 120px;
 }
 
 .todo-container {
@@ -29,12 +30,12 @@ button {
 
 .btns {
   display: flex;
-  
+
 }
 
 .todo-item {
-  margin: 10px;
-  width: 300px;
+  margin: 5px;
+  width: 600px;
   height: 40px;
   padding: 0.1rem 1rem;
   font-size: 1.5rem;
