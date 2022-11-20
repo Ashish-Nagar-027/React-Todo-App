@@ -19,8 +19,13 @@ function App() {
      setTodoList((prevList) => prevList.filter((listItem,index) => index !==key))
  } 
 
- const  completeTask = (index) => {
-     console.log('editing')
+ const  completeTask = (key) => {
+     setTodoList((todoList.map((item,index) => {
+      if(index === key) {
+        return { ...item,completed : !item.completed }
+      }
+      return item
+     } )))
   }
 
   return (
@@ -42,7 +47,7 @@ function App() {
                      <div className='btns'>
                         <button onClick={() => editTask(key) }>Edit</button>
                         <button onClick={() =>  deleteTask(key) }>Delete</button> 
-                        <button onClick={() =>  completeTask(key) }>completed</button>
+                        <button onClick={() =>  completeTask(key) }>{valueObj.completed ? "Completed": "Not Completed"}</button>
                       </div> 
                      </div>
               })             
