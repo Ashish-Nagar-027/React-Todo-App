@@ -7,12 +7,15 @@ function App() {
   const [inputValue, setInputValue] = useState("")
    
  function addTask() {
-        setTodoList([...todoList, { task: inputValue, completed: false }])
-        setInputValue("")
+        if(inputValue !== "") {
+          setTodoList([...todoList, { task: inputValue, completed: false }])
+          setInputValue("")
+        }
  }
 
- const editTask = (key) => {
-  console.log(key)
+ const editTask = (key,valueObj) => {
+    
+    setInputValue(valueObj.task)
  }
 
  const deleteTask = (key) => {
@@ -45,7 +48,7 @@ function App() {
                        { valueObj.task } 
                      </div>
                      <div className='btns'>
-                        <button onClick={() => editTask(key) }>Edit</button>
+                        <button onClick={() => editTask(key,valueObj) }>Edit</button>
                         <button onClick={() =>  deleteTask(key) }>Delete</button> 
                         <button onClick={() =>  completeTask(key) }>{valueObj.completed ? "Completed": "Not Completed"}</button>
                       </div> 
