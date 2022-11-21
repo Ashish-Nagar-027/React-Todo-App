@@ -8,14 +8,20 @@ function App() {
    
  function addTask() {
         if(inputValue !== "") {
-          setTodoList([...todoList, { task: inputValue, completed: false }])
+          
+          setTodoList([...todoList, { task: inputValue,editing: false , completed: false }])
           setInputValue("")
         }
  }
 
  const editTask = (key,valueObj) => {
-    
     setInputValue(valueObj.task)
+    setTodoList((todoList.map((item,index) => {
+      if(index === key) {
+        return { ...item, editing:true }
+      }
+      return item
+     } )))
  }
 
  const deleteTask = (key) => {
@@ -35,7 +41,7 @@ function App() {
     <div className="App">
         <h1>Todo List</h1>
         <div>
-          <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Add Task . . ."></input>
+          <input type="text" value={inputValue} onKeyPress={(event) => {if(event.key === 'Enter') addTask()} } onChange={(e) => setInputValue(e.target.value)} placeholder="Add Task . . ."></input>
           <button onClick={addTask}>Add Task</button>
         </div>
         <hr />
