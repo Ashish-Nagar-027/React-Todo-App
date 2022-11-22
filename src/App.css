@@ -3,7 +3,6 @@
 }
 
 input {
-  
   width: 300px;
   height: 40px;
   padding: 0.1rem 1rem;
@@ -12,11 +11,20 @@ input {
 }
 
 button {
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
+  font-size: 1.4rem;
   cursor: pointer;
   margin: 5px;
-  width: 120px;
+}
+
+button:hover {
+  color:blue
+}
+
+.addBtn {
+  height: 48px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  outline: none;
 }
 
 .todo-container {
@@ -36,8 +44,7 @@ button {
 .todo-item {
   margin: 5px;
   width: 600px;
-  height: 40px;
-  padding: 0.1rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.5rem;
   outline: none;
   letter-spacing: 1px;
@@ -45,7 +52,10 @@ button {
   align-items: center;
   justify-content: space-between;
   background-color: cadetblue;
-  padding: 1rem;
- 
 }
 
+
+
+.completed-task {
+  text-decoration: line-through;
+}
