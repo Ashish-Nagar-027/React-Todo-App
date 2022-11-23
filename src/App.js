@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { FaEdit, FaCheck } from 'react-icons/fa'
-import { AiTwotoneDelete } from "react-icons/ai";
+
+import Form from './components/Form';
 import './App.css';
+import TodoContainer from './components/TodoContainer';
 
 function App() {
    
@@ -52,32 +53,14 @@ function App() {
   }
 
   return (
+
     <div className="App">
         <h1>Todo List</h1>
-        <div>
-          <input type="text" value={inputValue} onKeyPress={(event) => {if(event.key === 'Enter'){addTask(editId) }}} onChange={(e) => setInputValue(e.target.value)} placeholder="Add Task . . ."></input>
-          <button className='addBtn' onClick={() => addTask(editId)}>{isEditing ? "Editing " : 'Add Task'}</button>
-        </div>
+        <Form inputValue={inputValue} setInputValue={setInputValue} editId={editId} isEditing={isEditing} setIsEditing={setIsEditing} addTask={addTask} />
         <hr />
-        <div>
-          <div className='todo-container'>
-            {
-              todoList.map((valueObj, key) => {
-                return <div className='todo-item' key={key}>
-                   <div className={ valueObj.completed ? 'todo-item-value completed-task' :'todo-item-value'}>
-                       { valueObj.task } 
-                     </div>
-                     <div className='btns'>
-                        <button onClick={() => editTask(key,valueObj) }> <FaEdit /> </button>
-                        <button onClick={() =>  deleteTask(key) }> <AiTwotoneDelete /></button> 
-                        <button onClick={() =>  completeTask(key) }> <FaCheck /> </button>
-                      </div> 
-                     </div>
-              })             
-            }
-            </div>
-        </div>
+        <TodoContainer editTask={editTask} todoList={todoList} completeTask={completeTask} deleteTask={deleteTask} />
     </div>
+    
   );
 }
 
