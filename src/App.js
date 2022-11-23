@@ -1,12 +1,24 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 import Form from './components/Form';
 import './App.css';
 import TodoContainer from './components/TodoContainer';
 
 function App() {
+
+  // get from local 
+  function getLocalStorage() {
+    let todoList = localStorage.getItem('todoList')
+    // console.log(todoList)
+    if(todoList){
+      return JSON.parse(todoList)
+    }
+    else{
+      return []
+    }
+  }
    
-  const [todoList, setTodoList] = useState([])
+  const [todoList, setTodoList] = useState(getLocalStorage())
   const [inputValue, setInputValue] = useState("")
   const [isEditing, setIsEditing] = useState(false)
   const [editId,setEditId] = useState('')
@@ -51,6 +63,11 @@ function App() {
       return item
      } )))
   }
+
+  // saving to local
+  useEffect(() => {
+        localStorage.setItem('todoList', JSON.stringify(todoList))
+  },[todoList])
 
   return (
 
