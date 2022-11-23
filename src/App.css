@@ -33,6 +33,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   align-items: center;
 }
 
@@ -58,4 +59,51 @@ button:hover {
 
 .completed-task {
   text-decoration: line-through;
+}
+
+hr {
+  margin: auto;
+}
+
+@media screen and (max-width:700px) {
+  
+    .todo-item {
+      width: 90%;
+      font-size: 1.2rem;
+      padding: 0.3rem 0.5rem;
+  }
+
+  input {
+    width: 50%;
+    height: 30px;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.addBtn {
+  height: 40px;
+  padding: 0.2rem 0.5rem;
+  font-size: 1rem;
+}
+.btns {
+  margin-left: 1rem;
+}
+button {
+  font-size: 1.1rem;
+ 
+}
+}
+
+@media screen and (max-width:400px){
+  button {
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.btns {
+  margin-left: 0.5rem;
+}
+
 }
