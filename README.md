@@ -1,10 +1,10 @@
 
+# live link 
+https://react-todo-app-by-ak.netlify.app/
+
 
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## working on it (not completed yet)
-
 
 ## Available Scripts
 
