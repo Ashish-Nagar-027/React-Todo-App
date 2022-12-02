@@ -8,7 +8,16 @@ input {
   padding: 0.1rem 1rem;
   font-size: 1rem;
   outline: none;
+  margin: 2px;
 }
+
+form {
+  background-color: rgb(179, 201, 202);
+  width: fit-content;
+  padding: 2rem;
+  margin: auto;
+}
+
 
 button {
   font-size: 1.4rem;
@@ -49,14 +58,34 @@ button:hover {
   font-size: 1.5rem;
   outline: none;
   letter-spacing: 1px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: cadetblue;
 }
 
+.todo-title {
+  border: 1px solid black;
+  padding: 5px;
+}
 
 
+.todo-details {
+  display: flex;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: cadetblue;
+  border: 1px solid black;
+  padding: 5px;
+  border-top: none;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .completed-task {
   text-decoration: line-through;
 }

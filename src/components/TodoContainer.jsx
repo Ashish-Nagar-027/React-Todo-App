@@ -9,6 +9,8 @@ const TodoContainer = ({editTask,deleteTask,completeTask,todoList}) => {
             {
               todoList.map((valueObj, key) => {
                 return <div className='todo-item' key={key}>
+                  <div className="todo-title">{valueObj.TitleValue}</div>
+                  <div className='todo-details'>
                    <div className={ valueObj.completed ? 'todo-item-value completed-task' :'todo-item-value'}>
                        { valueObj.task } 
                      </div>
@@ -16,6 +18,7 @@ const TodoContainer = ({editTask,deleteTask,completeTask,todoList}) => {
                         <button onClick={() => editTask(key,valueObj) }> <FaEdit /> </button>
                         <button onClick={() =>  deleteTask(key) }> <AiTwotoneDelete /></button> 
                         <button onClick={() =>  completeTask(key) }> <FaCheck /> </button>
+                      </div>
                       </div> 
                      </div>
               })             

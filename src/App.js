@@ -20,27 +20,31 @@ function App() {
    
   const [todoList, setTodoList] = useState(getLocalStorage())
   const [inputValue, setInputValue] = useState("")
+  const [TitleValue, setTitleValue] = useState("")
   const [isEditing, setIsEditing] = useState(false)
   const [editId,setEditId] = useState('')
    
  function addTask(key) {
-        if(inputValue !== "") {
+        if(inputValue !== "" && TitleValue !=="") {
           if(!isEditing){
-            setTodoList([...todoList, { task: inputValue, completed: false }])
+            setTodoList([...todoList, { task: inputValue, TitleValue:TitleValue, completed: false }])
+            console.log(todoList)
             setInputValue("")
+            setTitleValue("")
+
           }
          else {
           setTodoList((todoList.map((item,index) => {
             if(index === key) {
-              return {...item , task: inputValue }
+              return {...item , task: inputValue ,TitleValue:TitleValue, }
             }
             return item
            }
             )))
+            setTitleValue("")
             setInputValue("")
-           setIsEditing(false)
-           setEditId('')
-
+            setIsEditing(false)
+            setEditId('')
         }
       }
  }
@@ -48,6 +52,7 @@ function App() {
  const editTask = (key,valueObj) => {
     setIsEditing(true)
     setInputValue(valueObj.task)
+    setTitleValue(valueObj.TitleValue)
     setEditId(key)
  }
 
@@ -73,7 +78,7 @@ function App() {
 
     <div className="App">
         <h1>Todo List</h1>
-        <Form inputValue={inputValue} setInputValue={setInputValue} editId={editId} isEditing={isEditing} setIsEditing={setIsEditing} addTask={addTask} />
+        <Form inputValue={inputValue} TitleValue={TitleValue} setTitleValue={setTitleValue} setInputValue={setInputValue} editId={editId} isEditing={isEditing} setIsEditing={setIsEditing} addTask={addTask} />
         <hr />
         <TodoContainer editTask={editTask} todoList={todoList} completeTask={completeTask} deleteTask={deleteTask} />
     </div>
